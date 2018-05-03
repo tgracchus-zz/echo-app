@@ -1,0 +1,13 @@
+version: '3'
+services:
+  echo:
+    build: .
+    ports:
+     - "8080:1323"
+    depends_on:
+    - "maria"
+    - "rabbit"
+  maria:
+    image: "mariadb:10.3.6"
+  rabbit:
+    image: "rabbitmq:3.7.4"
