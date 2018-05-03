@@ -34,6 +34,7 @@ func main() {
 	viper.AddConfigPath(*configPath)
 	viper.SetConfigType("yaml")
 	viper.SetConfigName("echo-" + *env)
+	viper.AutomaticEnv()
 
 	err := viper.ReadInConfig()
 	if err != nil {
@@ -43,14 +44,8 @@ func main() {
 	viper.SetDefault("DATABASE_HOST", "127.0.0.1")
 	viper.SetDefault("DATABASE_PORT", "3306")
 	viper.SetDefault("DATABASE_NAME", "echo")
-	viper.SetDefault("DATABASE_USER", "echo-user")
-	viper.SetDefault("DATABASE_PASSWORD", "dev")
-
-	viper.BindEnv("DATABASE_HOST", "DATABASE_HOST")
-	viper.BindEnv("DATABASE_PORT", "DATABASE_PORT")
-	viper.BindEnv("DATABASE_NAME", "DATABASE_NAME")
-	viper.BindEnv("DATABASE_USER", "DATABASE_USER")
-	viper.BindEnv("DATABASE_PASSWORD", "DATABASE_PASSWORD")
+	viper.SetDefault("DATABASE_USER", "user")
+	viper.SetDefault("DATABASE_PASSWORD", "password")
 
 	databaseHost := viper.Get("DATABASE_HOST")
 	databasePort := viper.Get("DATABASE_PORT")
@@ -61,6 +56,7 @@ func main() {
 	connectionString := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8",
 		databaseUser, databasePassword, databaseHost, databasePort, database)
 
+	fmt.Println(connectionString)
 	//SQL
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {

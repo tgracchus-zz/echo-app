@@ -4,13 +4,22 @@ services:
     build: .
     ports:
      - "8080:1323"
-    command: ["-configPath","config/","-env","docker"]
+    environment: 
+     - DATABASE_PASSWORD=dev
+     - DATABASE_USER=dev
+     - DATABASE_HOST=maria
+     - DATABASE_PORT=3306
+     - DATABASE_NAME=echo
     depends_on:
-    - "maria"
+     - "maria"
   maria:
     image: "mariadb:10.3.6"
     ports:
      - "3306:3306"
-    env_file: 
-      - dev.env
+    environment: 
+     - MYSQL_DATABASE=echo
+     - MYSQL_USER=dev
+     - MYSQL_PASSWORD=dev
+     - MYSQL_ROOT_PASSWORD=dev
+  
   
