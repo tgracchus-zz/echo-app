@@ -25,3 +25,4 @@ do
     rm -f $output_name
     env GOOS=$GOOS GOARCH=$GOARCH go build -o $output_name
 done
+
