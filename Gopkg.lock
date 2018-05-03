@@ -8,6 +8,12 @@
   version = "v3.2.0"
 
 [[projects]]
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  revision = "a0583e0143b1624142adab07e0e97fe106d99561"
+  version = "v1.3"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = [
     ".",
@@ -69,6 +75,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f157f2f3748e00adef9f6bc27d2701bcaf37fe89e9d7506d70612584c1aef97d"
+  inputs-digest = "cced1693a30d4fcca6eda2a19b45129cdd1a8fe3d79286edf22e009cc4452a75"
   solver-name = "gps-cdcl"
   solver-version = 1
