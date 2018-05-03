@@ -2,7 +2,6 @@
 
 set -e
 
-./script/cibuild
-
-docker-compose up
+docker-compose up -d maria
+go run main.go -configPath="config" -env="local"
 
