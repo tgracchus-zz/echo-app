@@ -9,7 +9,7 @@ services:
      - DATABASE_USER=dev
      - DATABASE_HOST=maria
      - DATABASE_PORT=3306
-     - DATABASE_NAME=echo
+     - DATABASE_NAME=echo-docker
     depends_on:
      - "maria"
   maria:
@@ -17,7 +17,7 @@ services:
     ports:
      - "3306:3306"
     environment: 
-     - MYSQL_DATABASE=echo
+     - MYSQL_DATABASE=echo-docker
      - MYSQL_USER=dev
      - MYSQL_PASSWORD=dev
      - MYSQL_ROOT_PASSWORD=dev
